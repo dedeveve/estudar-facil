@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estuda Fácil - Aprenda Sem Complicações</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#10B981',
+                        accent: '#F59E0B',
+                        light: '#F3F4F6',
+                        dark: '#1F2937'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .card-hover {
+                @apply transition-all duration-300 hover:shadow-lg hover:scale-[1.02];
+            }
+            .btn-primary {
+                @apply bg-primary hover:bg-primary/90 text-white font-medium py-2 px-4 rounded-lg transition-all;
+            }
+            .btn-secondary {
+                @apply bg-secondary hover:bg-secondary/90 text-white font-medium py-2 px-4 rounded-lg transition-all;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+    <!-- Cabeçalho -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-[clamp(1.2rem,3vw,1.8rem)] font-bold text-primary">
+                <i class="fa fa-book mr-2"></i>Estuda Fácil
+            </a>
+            <nav class="hidden md:flex gap-8">
+                <a href="#inicio" class="hover:text-primary transition-colors">Início</a>
+                <a href="#escolher-ano" class="hover:text-primary transition-colors">Estudar</a>
+                <a href="#sobre" class="hover:text-primary transition-colors">Sobre</a>
+            </nav>
+            <button class="md:hidden text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Início -->
+        <section id="inicio" class="py-16 md:py-24 bg-gradient-to-br from-indigo-50 to-green-50">
+            <div class="container mx-auto px-4">
+                <div class="max-w-3xl mx-auto text-center">
+                    <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-dark mb-6">
+                        Estudar nunca foi tão fácil! ✨
+                    </h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8">
+                        Explicações simples, diretas e feitas para você entender de verdade. 
+                        Escolha sua série e comece agora!
+                    </p>
+                    <a href="#escolher-ano" class="btn-primary text-lg px-8 py-3 inline-block">
+                        Começar a Estudar <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Escolha de Série -->
+        <section id="escolher-ano" class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <h2 class="text-[clamp(1.5rem,3vw,2.2rem)] font-bold text-center mb-12">
+                    Qual é a sua série? 📖
+                </h2>
+
+                <!-- Níveis de Ensino -->
+                <div class="grid md:grid-cols-3 gap-8 mb-12">
+                    <!-- Ensino Fundamental I -->
+                    <div class="bg-blue-50 rounded-2xl p-6 card-hover border border-blue-100">
+                        <h3 class="text-xl font-bold text-primary mb-4 text-center">Ensino Fundamental I</h3>
+                        <p class="text-gray-600 mb-6 text-center">1º ao 5º ano</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="mostrarConteudo('fundamental1-1')" class="btn-primary">1º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental1-2')" class="btn-primary">2º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental1-3')" class="btn-primary">3º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental1-4')" class="btn-primary">4º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental1-5')" class="btn-primary col-span-2">5º Ano</button>
+                        </div>
+                    </div>
+
+                    <!-- Ensino Fundamental II -->
+                    <div class="bg-green-50 rounded-2xl p-6 card-hover border border-green-100">
+                        <h3 class="text-xl font-bold text-secondary mb-4 text-center">Ensino Fundamental II</h3>
+                        <p class="text-gray-600 mb-6 text-center">6º ao 9º ano</p>
+                        <div class="grid grid-cols-2 gap-3">
+                            <button onclick="mostrarConteudo('fundamental2-6')" class="btn-secondary">6º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental2-7')" class="btn-secondary">7º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental2-8')" class="btn-secondary">8º Ano</button>
+                            <button onclick="mostrarConteudo('fundamental2-9')" class="btn-secondary">9º Ano</button>
+                        </div>
+                    </div>
+
+                    <!-- Ensino Médio -->
+                    <div class="bg-amber-50 rounded-2xl p-6 card-hover border border-amber-100">
+                        <h3 class="text-xl font-bold text-accent mb-4 text-center">Ensino Médio</h3>
+                        <p class="text-gray-600 mb-6 text-center">1º ao 3º ano</p>
+                        <div class="grid grid-cols-1 gap-3">
+                            <button onclick="mostrarConteudo('medio-1')" class="bg-accent hover:bg-accent/90 text-white rounded-lg py-2">1º Ano</button>
+                            <button onclick="mostrarConteudo('medio-2')" class="bg-accent hover:bg-accent/90 text-white rounded-lg py-2">2º Ano</button>
+                            <button onclick="mostrarConteudo('medio-3')" class="bg-accent hover:bg-accent/90 text-white rounded-lg py-2">3º Ano</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Área de Conteúdo -->
+                <div id="conteudo-estudo" class="hidden mt-12 bg-gray-50 rounded-2xl p-6 md:p-8 shadow-md">
+                    <button onclick="voltarEscolha()" class="mb-6 text-gray-600 hover:text-primary">
+                        <i class="fa fa-arrow-left mr-2"></i> Voltar para escolha de série
+                    </button>
+                    
+                    <h3 id="titulo-serie" class="text-2xl font-bold mb-6 text-center"></h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- Matemática -->
+                        <div class="bg-white p-6 rounded-xl shadow-sm border">
+                            <h4 class="text-xl font-bold text-primary mb-4">
+                                <i class="fa fa-calculator mr-2"></i> Matemática
+                            </h4>
+                            <div id="conteudo-matematica" class="space-y-4 text-gray-700">
+                                <!-- Conteúdo inserido via JS -->
+                            </div>
+                        </div>
+                        
+                        <!-- Português -->
+                        <div class="bg-white p-6 rounded-xl shadow-sm border">
+                            <h4 class="text-xl font-bold text-secondary mb-4">
+                                <i class="fa fa-book mr-2"></i> Português
+                            </h4>
+                            <div id="conteudo-portugues" class="space-y-4 text-gray-700">
+                                <!-- Conteúdo inserido via JS -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Ciências - aparece a partir de certos anos -->
+                    <div id="caixa-ciencias" class="mt-8 bg-white p-6 rounded-xl shadow-sm border hidden">
+                        <h4 class="text-xl font-bold text-accent mb-4">
+                            <i class="fa fa-flask mr-2"></i> Ciências
+                        </h4>
+                        <div id="conteudo-ciencias" class="space-y-4 text-gray-700"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção Sobre -->
+        <section id="sobre" class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-center mb-10">Sobre o Estuda Fácil</h2>
+                <div class="max-w-3xl mx-auto bg-white p-8 rounded-2xl shadow-md">
+                    <p class="mb-4 text-lg">
+                        O <strong>Estuda Fácil</strong> foi criado com um único objetivo: 
+                        explicar os conteúdos escolares de forma simples, sem palavras difíceis e 
+                        sem complicações!
+                    </p>
+                    <ul class="space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Explicações passo a passo e fáceis de entender</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Conteúdo organizado por série escolar</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Exemplos do dia a dia para facilitar o aprendizado</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-secondary mt-1 mr-2"></i>
+                            <span>Acesso pelo celular, computador ou tablet</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-xl font-bold mb-4">Estuda Fácil</p>
+            <p class="text-gray-400 mb-6">Aprender é mais fácil quando explicamos do jeito certo 💙</p>
+            <p class="text-sm text-gray-500">© 2026 Estuda Fácil - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Base de conteúdos
+        const conteudos = {
+            'fundamental1-1': {
+                titulo: '1º Ano do Ensino Fundamental',
+                matematica: `
+                    <p><strong>🔢 Números até 100</strong><br>
+                    Contar, escrever e reconhecer números. Exemplo: 1, 2, 3... até 100!</p>
+                    
+                    <p><strong>➕ Adição</strong><br>
+                    Juntar quantidades. Exemplo: 2 maçãs + 3 maçãs = 5 maçãs 🍎</p>
+                    
+                    <p><strong>➖ Subtração</strong><br>
+                    Tirar quantidades. Exemplo: 5 balas menos 2 = 3 balas 🍬</p>
+                `,
+                portugues: `
+                    <p><strong>✍️ Letras e Alfabeto</strong><br>
+                    Conhecer as letras e os sons que elas fazem.</p>
+                    
+                    <p><strong>📝 Leitura e Escrita</strong><br>
+                    Ler palavras simples e escrever seu nome e frases curtas.</p>
+                    
+                    <p><strong>🗣️ Ordem das Palavras</strong><br>
+                    Montar frases com as palavras na ordem certa: "Eu gosto de estudar".</p>
+                `,
+                ciencias: null
+            },
+            'fundamental1-5': {
+                titulo: '5º Ano do Ensino Fundamental',
+                matematica: `
+                    <p><strong>🔢 Números Naturais e Decimais</strong><br>
+                    Números com vírgula! Exemplo: R$ 1,50 é 1 real e 50 centavos.</p>
+                    
+                    <p><strong>✖️ Multiplicação e Divisão</strong><br>
+                    Multiplicar é somar várias vezes. Dividir é repartir em partes iguais.</p>
+                    
+                    <p><strong>📐 Área e Perímetro</strong><br>
+                    Área é a superfície de uma figura. Perímetro é a soma de todos os lados.</p>
+                `,
+                portugues: `
+                    <p><strong>📖 Tipos de Texto</strong><br>
+                    Contos, notícias, receitas... Cada um tem um jeito diferente de escrever.</p>
+                    
+                    <p><strong>🔤 Gramática</strong><br>
+                    Sujeito e predicado: quem faz a ação e o que acontece.</p>
+                    
+                    <p><strong>✍️ Pontuação</strong><br>
+                    Ponto final, vírgula, ponto de exclamação! E interrogação?</p>
+                `,
+                ciencias: `
+                    <p><strong>🌱 Seres Vivos</strong><br>
+                    Plantas, animais e seres humanos. Todos têm necessidades diferentes.</p>
+                    
+                    <p><strong>☀️ Sol e Água</strong><br>
+                    Como a luz do Sol e a água ajudam a vida no planeta.</p>
+                `
+            },
+            'fundamental2-6': {
+                titulo: '6º Ano do Ensino Fundamental',
+                matematica: `
+                    <p><strong>🔢 Números Naturais</strong><br>
+                    Revisão e aprofundamento das operações: +, -, × e ÷ com números grandes.</p>
+                    
+                    <p><strong>📐 Figuras Geométricas</strong><br>
+                    Triângulo, quadrado, retângulo, círculo... conheça suas formas e lados!</p>
+                    
+                    <p><strong>📊 Gráficos e Tabelas</strong><br>
+                    Como ler e organizar informações em gráficos de barras e tabelas.</p>
+                `,
+                portugues: `
+                    <p><strong>📚 Gêneros Textuais</strong><br>
+                    Narrativo, descritivo, dissertativo — entenda a diferença entre eles!</p>
+                    
+                    <p><strong>🔤 Classes de Palavras</strong><br>
+                    Substantivo, verbo, adjetivo... cada um tem uma função na frase.</p>
+                    
+                    <p><strong>📝 Interpretação de Texto</strong><br>
+                    Ler com atenção para entender o que o texto realmente quer dizer.</p>
+                `,
+                ciencias: `
+                    <p><strong>🧬 Corpo Humano</strong><br>
+                    Sistemas do corpo: digestório, respiratório, circulatório e muito mais!</p>
+                    
+                    <p><strong>🌍 Terra e Universo</strong><br>
+                    Rotação e translação — por que temos dias e noites e estações do ano?</p>
+                `
+            },
+            'medio-1': {
+                titulo: '1º Ano do Ensino Médio',
+                matematica: `
+                    <p><strong>📐 Conjuntos Numéricos</strong><br>
+                    Números naturais, inteiros, racionais, irracionais e reais — entenda cada grupo!</p>
+                    
+                    <p><strong>📏 Função do 1º Grau</strong><br>
+                    Equações com x. Gráfico em linha reta. Exemplo: y = 2x + 3</p>
+                    
+                    <p><strong>📐 Geometria Plana</strong><br>
+                    Áreas e perímetros de figuras planas: triângulos, círculos, polígonos.</p>
+                `,
+                portugues: `
+                    <p><strong>📜 Literatura — Introdução</strong><br>
+                    Estilos de época, movimentos literários e características dos textos.</p>
+                    
+                    <p><strong>📝 Gramática e Análise</strong><br>
+                    Estrutura da frase, concordância nominal e verbal, regência.</p>
+                    
+                    <p><strong>📖 Interpretação e Produção</strong><br>
+                    Como escrever um texto argumentativo claro e bem estruturado.</p>
+                `,
+                ciencias: `
+                    <p><strong>⚛️ Matéria e Energia</strong><br>
+                    Estados físicos da matéria e transformações de energia.</p>
+                    
+                    <p><strong>🧬 Células e Tecidos</strong><br>
+                    A unidade básica da vida — como funcionam as células animais e vegetais.</p>
+                `
+            }
+        };
+
+        // Conteúdo padrão para séries não especificadas
+        const conteudoPadrao = {
+            matematica: '<p>Conteúdo de Matemática em desenvolvimento para esta série! 📚</p>',
+            portugues: '<p>Conteúdo de Português em desenvolvimento para esta série! 📖</p>',
+            ciencias: '<p>Conteúdo de Ciências em breve! 🔬</p>'
+        };
+
+        function mostrarConteudo(chave) {
+            const caixa = document.getElementById('conteudo-estudo');
+            const dados = conteudos[chave] || {
+                titulo: 'Conteúdo em Desenvolvimento',
+                matematica: conteudoPadrao.matematica,
+                portugues: conteudoPadrao.portugues,
+                ciencias: null
+            };
+
+            document.getElementById('titulo-serie').textContent = dados.titulo;
+            document.getElementById('conteudo-matematica').innerHTML = dados.matematica;
+            document.getElementById('conteudo-portugues').innerHTML = dados.portugues;
+
+            const caixaCiencias = document.getElementById('caixa-ciencias');
+            if (dados.ciencias) {
+                caixaCiencias.classList.remove('hidden');
+                document.getElementById('conteudo-ciencias').innerHTML = dados.ciencias;
+            } else {
+                caixaCiencias.classList.add('hidden');
+            }
+
+            caixa.classList.remove('hidden');
+            caixa.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function voltarEscolha() {
+            document.getElementById('conteudo-estudo').classList.add('hidden');
+            document.getElementById('escolher-ano').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
